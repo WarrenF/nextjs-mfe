@@ -14,6 +14,8 @@ To setup, run the following in the specified order to create a production build 
 
 `yarn start:mfes`
 
+Then in a different terminal window:
+
 `yarn build:shell`
 
 `yarn start:shell`
