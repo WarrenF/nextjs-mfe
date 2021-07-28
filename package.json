@@ -11,6 +11,7 @@
     ]
   },
   "scripts": {
+    "bootstrap": "yarn && cd packages/app-shell && yarn",
     "build:mfes": "concurrently \"wsrun --parallel build\"",
     "clean:mfes": "concurrently \"wsrun --parallel clean\"",
     "start:mfes": "concurrently \"wsrun --parallel start\"",
