@@ -12,21 +12,6 @@ module.exports = {
         postsLib: isServer
           ? "postsLib@http://localhost:3001/node/remoteEntry.js"
           : "postsLib@http://localhost:3001/web/remoteEntry.js"
-          // : {
-          //   external: `external new Promise((r, j) => {
-          //   window['remoteLib'].init({
-          //     react: {
-          //       "${packageJsonDeps.react}": {
-          //         get: () => Promise.resolve().then(() => () => globalThis.React),
-          //       }
-          //     }
-          //   });
-          //   r({
-          //     get: (request) => window['remoteLib'].get(request),
-          //     init: (args) => {}
-          //   });
-          // })`,
-          // },
       },
       shared: {
         react: {

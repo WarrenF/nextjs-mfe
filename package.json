@@ -12,12 +12,15 @@
   },
   "scripts": {
     "bootstrap": "yarn && cd packages/app-shell && yarn",
+    "clean:all": "yarn clean:mfes && yarn clean:shell",
     "build:mfes": "concurrently \"wsrun --parallel build\"",
     "clean:mfes": "concurrently \"wsrun --parallel clean\"",
+    "dev:mfes": "concurrently \"wsrun --parallel dev\"",
     "start:mfes": "concurrently \"wsrun --parallel start\"",
-    "build:shell": "cd ./packages/app-shell && yarn build",
-    "clean:shell": "cd ./packages/app-shell && yarn clean",
-    "start:shell": "cd ./packages/app-shell && yarn start"
+    "build:shell": "cd packages/app-shell && yarn build",
+    "clean:shell": "cd packages/app-shell && yarn clean",
+    "dev:shell": "cd packages/app-shell && yarn dev",
+    "start:shell": "cd packages/app-shell && yarn start"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
