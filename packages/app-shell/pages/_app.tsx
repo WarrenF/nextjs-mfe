@@ -3,17 +3,15 @@ import Head from "next/head"
 import { useRouter } from 'next/router'
 import { EventEmitter } from "inf-ee"
 
+import Layout from '../components/Layout'
 declare global {
   interface Window {
-      ee: {
-        emit: (eventName: string, args: unknown) => void
-        on: (eventName: string, func: (data: unknown) => void) => void
-      }
+    ee: {
+      emit: (eventName: string, args: unknown) => void
+      on: (eventName: string, func: (data: unknown) => void) => void
+    }
   }
 }
-
-// Required for react to be discovered correctly
-// globalThis.React = React;
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -40,7 +38,9 @@ function MyApp({ Component, pageProps }) {
         />
         <script src="http://localhost:3001/web/remoteEntry.js" defer />
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

@@ -1,10 +1,13 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Nav = () => (
   <header>
     <div className="navbar navbar-dark bg-dark shadow-sm">
       <div className="container">
-        <a href="#" className="navbar-brand d-flex align-items-center">Todo</a>
+        <Link href="/">
+          <a className="navbar-brand d-flex align-items-center">NextJS MFE</a>
+        </Link>
       </div>
     </div>
   </header>
