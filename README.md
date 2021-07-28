@@ -9,9 +9,13 @@ It is possible for the MFEs and App Shell to communicate with each other through
 To setup, run the following in the specified order to create a production build which is served from http://localhost:3000
 
 `yarn bootstrap`
+
 `yarn build:mfes`
+
 `yarn start:mfes`
+
 `yarn build:shell`
+
 `yarn start:shell`
 
 Ideally, the remoteEntry js files would be uploaded to an s3 bucket and the App Shell would load them from there.
