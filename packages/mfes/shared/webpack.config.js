@@ -13,11 +13,11 @@ const webpackConfig = target => ({
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 3001,
+    port: 3002,
   },
   output: {
     path: path.join(__dirname, "dist", target),
-    publicPath: `http://localhost:3001/${target}/`,
+    publicPath: `http://localhost:3002/${target}/`,
     clean: true
   },
   resolve: {
@@ -44,11 +44,10 @@ const webpackConfig = target => ({
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "posts",
+      name: "shared",
       filename: "remoteEntry.js",
       exposes: {
-        "./Post": "./src/components/Post.tsx",
-        "./Posts": "./src/components/Posts.tsx"
+        "./Layout": "./src/components/Layout.tsx"
       },
       shared: {
         react: {

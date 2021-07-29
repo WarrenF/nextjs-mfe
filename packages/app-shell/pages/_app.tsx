@@ -3,15 +3,7 @@ import Head from "next/head"
 import { useRouter } from 'next/router'
 import { EventEmitter } from "inf-ee"
 
-import Layout from '../components/Layout'
-declare global {
-  interface Window {
-    ee: {
-      emit: (eventName: string, args: unknown) => void
-      on: (eventName: string, func: (data: unknown) => void) => void
-    }
-  }
-}
+const Layout = (await import('shared/Layout')).default
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -37,6 +29,7 @@ function MyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
         />
         <script src="http://localhost:3001/web/remoteEntry.js" defer />
+        <script src="http://localhost:3002/web/remoteEntry.js" defer />
       </Head>
       <Layout>
         <Component {...pageProps} />

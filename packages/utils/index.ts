@@ -1,0 +1,1 @@
+export { updatePage } from "./src/updatePage"

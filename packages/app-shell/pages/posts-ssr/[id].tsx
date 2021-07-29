@@ -1,11 +1,5 @@
-// @ts-ignore
-const Posts = await import("postsLib/Post")
+const Posts = await import("posts/Post")
 
 export default Posts.default
 
-export const getServerSideProps = async ({ params }) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
-  const post = await res.json()
-
-  return { props: { post } }
-}
+export const getServerSideProps = Posts.getServerSideProps

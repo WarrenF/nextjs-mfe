@@ -7,16 +7,17 @@
   "license": "GPL",
   "workspaces": {
     "packages": [
-      "packages/mfes/*"
+      "packages/app-shell",
+      "packages/mfes/*",
+      "packages/utils"
     ]
   },
   "scripts": {
-    "bootstrap": "yarn && cd packages/app-shell && yarn",
+    "bootstrap": "yarn && lerna bootstrap",
     "clean:all": "yarn clean:mfes && yarn clean:shell",
-    "build:mfes": "concurrently \"wsrun --parallel build\"",
-    "clean:mfes": "concurrently \"wsrun --parallel clean\"",
-    "dev:mfes": "concurrently \"wsrun --parallel dev\"",
-    "start:mfes": "concurrently \"wsrun --parallel start\"",
+    "build:mfes": "concurrently \"wsrun -p @mfe/* --parallel build\"",
+    "clean:mfes": "concurrently \"wsrun -p @mfe/* --parallel clean\"",
+    "start:mfes": "concurrently \"wsrun -p @mfe/* --parallel start\"",
     "build:shell": "cd packages/app-shell && yarn build",
     "clean:shell": "cd packages/app-shell && yarn clean",
     "dev:shell": "cd packages/app-shell && yarn dev",
@@ -25,7 +26,6 @@
   "devDependencies": {
     "concurrently": "^5.3.0",
     "lerna": "^4.0.0",
-    "rimraf": "^3.0.2",
     "wsrun": "^5.2.4"
   }
 }

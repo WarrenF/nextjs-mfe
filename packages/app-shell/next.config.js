@@ -9,9 +9,12 @@ module.exports = {
     const { buildId, dev, isServer, defaultLoaders, webpack } = options
     const mfConf = {
       remotes: {
-        postsLib: isServer
-          ? "postsLib@http://localhost:3001/node/remoteEntry.js"
-          : "postsLib@http://localhost:3001/web/remoteEntry.js"
+        posts: isServer
+          ? "posts@http://localhost:3001/node/remoteEntry.js"
+          : "posts@http://localhost:3001/web/remoteEntry.js",
+        shared: isServer
+          ? "shared@http://localhost:3002/node/remoteEntry.js"
+          : "shared@http://localhost:3002/web/remoteEntry.js",
       },
       shared: {
         react: {

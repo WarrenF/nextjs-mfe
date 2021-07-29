@@ -1,5 +1,9 @@
 {
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/app-shell",
+    "packages/mfes/*",
+    "packages/utils"
+  ],
   "version": "independent",
   "useWorkspaces": true,
   "npmClient": "yarn",

@@ -1,5 +1,5 @@
 {
-  "name": "@mfe/posts",
+  "name": "@mfe/shared",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "webpack-cli serve --config-name web",
     "build": "webpack --mode production",
-    "start": "serve dist -p 3001",
+    "start": "serve dist -p 3002",
     "clean": "rm -rf dist"
   },
   "dependencies": {

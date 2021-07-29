@@ -1,5 +1,5 @@
 {
-  "name": "app-shell",
+  "name": "@nextjs-mfe/app-shell",
   "version": "0.1.0",
   "private": true,
   "scripts": {
