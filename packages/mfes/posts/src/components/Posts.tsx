@@ -4,7 +4,10 @@ import { updatePage } from '@nextjs-mfe/utils'
 
 type Props = {
   areaUrl: string,
-  posts: Post[]
+  posts: Post[],
+  page: {
+    title: string
+  }
 }
 
 export const getStaticProps = async () => {
@@ -14,7 +17,10 @@ export const getStaticProps = async () => {
   return {
     props: {
       areaUrl: 'posts',
-      posts
+      page: {
+        title: 'Posts'
+      },
+      posts,
     }
   }
 }
@@ -26,20 +32,24 @@ export const getServerSideProps = async () => {
   return { 
     props: {
       areaUrl: 'posts-ssr',
+      page: {
+        title: 'Posts SSR'
+      },
       posts
     }
   }
 }
 
-export default ({ areaUrl, posts }: Props) => {
-  const PostsList = posts.map(({ id, title }) => {
-    const url = `/${areaUrl}/${id}`
-    return <li key={id}><a href={url} onClick={updatePage}>{title}</a></li>
-  })
+export default ({ areaUrl, page, posts }: Props) => {
+  const PostsList = posts.map(({ id, title }) => (
+    <li key={id}>
+      <a href={`/${areaUrl}/${id}`} onClick={updatePage}>{title}</a>
+    </li>
+  ))
 
   return (
     <>
-      <h1>Posts</h1>
+      <h1>{page.title}</h1>
       <ul>{PostsList}</ul>
     </>
   )

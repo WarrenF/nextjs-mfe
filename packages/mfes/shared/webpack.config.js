@@ -66,7 +66,8 @@ const webpackConfig = target => ({
             template: "./public/index.html"
           }),
         ]
-      : [new NodeAsyncHttpRuntime()]),
+      : [new NodeAsyncHttpRuntime()]
+    ),
   ],
 })
 

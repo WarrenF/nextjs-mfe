@@ -5,7 +5,16 @@ import { EventEmitter } from "inf-ee"
 
 const Layout = (await import('shared/Layout')).default
 
-function MyApp({ Component, pageProps }) {
+type Props = {
+  Component: React.FC<any>,
+  pageProps: {
+    page: {
+      title: string
+    }
+  } | undefined
+}
+
+function MyApp({ Component, pageProps }: Props) {
   const router = useRouter()
 
   if (typeof window !== 'undefined') {
@@ -16,11 +25,12 @@ function MyApp({ Component, pageProps }) {
     window.ee.on('navigate', url => router.push(url))
   }
 
+  const { title = 'Dunelm MFE Example' } = pageProps.page || {}
+
   return (
     <>
       <Head>
-        <title>Dunelm MFE Example</title>
-        <meta name="description" content="Dunelm NextJS MFE Example" />
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"

@@ -19,16 +19,30 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
-  const post = await res.json()
+  const post: Post = await res.json()
 
-  return { props: { post } }
+  return {
+    props: {
+      page: {
+        title: post.title
+      },
+      post,
+    }
+  }
 }
 
 export const getServerSideProps = async ({ params }) => {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
-  const post = await res.json()
+  const post: Post = await res.json()
 
-  return { props: { post } }
+  return {
+    props: {
+      page: {
+        title: post.title
+      },
+      post
+    }
+  }
 }
 
 export default ({ post }: Props) => {

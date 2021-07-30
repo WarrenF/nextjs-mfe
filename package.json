@@ -15,6 +15,7 @@
   "scripts": {
     "bootstrap": "yarn && lerna bootstrap",
     "clean:all": "yarn clean:mfes && yarn clean:shell",
+    "dev:mfes": "concurrently \"wsrun -p @mfe/* --parallel dev\"",
     "build:mfes": "concurrently \"wsrun -p @mfe/* --parallel build\"",
     "clean:mfes": "concurrently \"wsrun -p @mfe/* --parallel clean\"",
     "start:mfes": "concurrently \"wsrun -p @mfe/* --parallel start\"",
