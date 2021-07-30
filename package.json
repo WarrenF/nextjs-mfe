@@ -12,6 +12,9 @@
       "packages/utils"
     ]
   },
+  "resolutions": {
+    "webpack": "5.46.0"
+  },
   "scripts": {
     "bootstrap": "yarn && lerna bootstrap",
     "clean:all": "yarn clean:mfes && yarn clean:shell",
