@@ -6,7 +6,7 @@ const path = require("path")
 module.exports = {
   webpack5: true,
   webpack: (config, options) => {
-    const { buildId, dev, isServer, defaultLoaders, webpack } = options
+    const { isServer } = options
     const mfConf = {
       remotes: {
         posts: isServer
