@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Post } from './types'
 
 type Props = {
   post: Post
 }
+
+const eeReady = () => typeof window !== 'undefined' && typeof window.ee !== 'undefined'
+const PAGE_VIEW = 'pageView'
 
 export const getStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts')

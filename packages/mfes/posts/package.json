@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "webpack-cli serve --config-name web",
-    "build": "webpack --mode production",
+    "build": "webpack",
     "start": "serve dist -p 3001",
     "clean": "rm -rf dist"
   },

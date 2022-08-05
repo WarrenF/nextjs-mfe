@@ -1,11 +1,15 @@
-import Link from 'next/link'
+const updatePage = (e: React.MouseEvent<HTMLAnchorElement>): void => {
+  e.preventDefault()
+  const url = e.currentTarget?.href
+  if (url) window.ee.emit('navigate', url)
+}
 
 export default function Home() {
   return (
     <>
-      <Link href='/posts'>SSG Posts</Link>
+      <a onClick={updatePage} href='/posts'>SSG Posts</a>
       <br />
-      <Link href='/posts-ssr'>SSR Posts</Link>
+      <a onClick={updatePage} href='/posts-ssr'>SSR Posts</a>
     </>
   )
 }
